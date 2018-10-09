@@ -1,0 +1,7 @@
+{
+  "name": "missionbit-firebase-data",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
