@@ -1,14 +1,34 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Hello Firebase!!
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addMovie()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-list>
+    <ion-item-sliding  *ngFor="let movie of movies | async">
+      <ion-item>
+        {{movie.title}}
+      </ion-item>
+      <ion-item-options>
+        <button ion-button icon-only light (click)="updateMovie(movie)">
+          <ion-icon name="paper"></ion-icon>
+        </button>
+        <button ion-button icon-only danger (click)="deleteMovie(movie.title, movie.id)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+
+  <!--a (click)=addTest()>Test1</a>
+  <a (click)=deleteTest()>Test2</a-->
 </ion-content>
